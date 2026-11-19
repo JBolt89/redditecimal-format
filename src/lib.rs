@@ -1,10 +1,10 @@
 pub mod from_redditecimal;
-pub mod implementations;
+pub mod implementation;
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    use implementations::base::*;
+    use implementation::*;
 
     #[test]
     fn does_i8_work() {
@@ -82,6 +82,6 @@ mod tests {
     fn does_from_work() {
         let i = from_redditecimal::from_redditecimal("1234567890⬆️⬇️❓🔼🔽❔").expect("oops");
 
-        assert_eq!(i, 0x1234567890ABCDEF_usize);
+        assert_eq!(i, 0x1234567890ABCDEF_u128);
     }
 }

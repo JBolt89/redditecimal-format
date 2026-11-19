@@ -1,4 +1,4 @@
-pub fn from_redditecimal(string: &str) -> Result<usize, Box<dyn std::error::Error>> {
+pub fn from_redditecimal(string: &str) -> Result<u128, Box<dyn std::error::Error>> {
     let parseable_string: String = string
         .replace("⬆️", "a")
         .replace("⬇️", "b")
@@ -9,5 +9,5 @@ pub fn from_redditecimal(string: &str) -> Result<usize, Box<dyn std::error::Erro
         .split_whitespace()
         .collect();
 
-    Ok(usize::from_str_radix(parseable_string.as_str(), 16)?)
+    Ok(u128::from_str_radix(parseable_string.as_str(), 16)?)
 }
