@@ -1,3 +1,4 @@
+pub mod from_redditecimal;
 pub mod implementations;
 
 #[cfg(test)]
@@ -75,5 +76,12 @@ mod tests {
     fn does_usize_work() {
         let i = 0x1234567890ABCDEF_usize;
         assert_eq!(i.as_redditecimal(), "1234567890⬆️⬇️❓🔼🔽❔");
+    }
+
+    #[test]
+    fn does_from_work() {
+        let i = from_redditecimal::from_redditecimal("1234567890⬆️⬇️❓🔼🔽❔").expect("oops");
+
+        assert_eq!(i, 0x1234567890ABCDEF_usize);
     }
 }
