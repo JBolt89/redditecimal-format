@@ -1,3 +1,4 @@
+/// Converts a redditecimal string to a u128.
 pub fn from_redditecimal(string: &str) -> Result<u128, Box<dyn std::error::Error>> {
     let parseable_string: String = string
         .replace("⬆️", "a")
